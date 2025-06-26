@@ -21,6 +21,10 @@ pids
 logs
 *.log
 
+# Test coverage
+coverage/
+.nyc_output
+
 # IDE and editor files
 .vscode/
 .idea/

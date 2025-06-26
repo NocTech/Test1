@@ -131,16 +131,18 @@ app.use((error, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-  console.log('Available endpoints:');
-  console.log('  GET    /                    - API documentation');
-  console.log('  GET    /api/items           - Get all items');
-  console.log('  GET    /api/items/:id       - Get item by ID');
-  console.log('  POST   /api/items           - Create new item');
-  console.log('  PUT    /api/items/:id       - Update item by ID');
-  console.log('  DELETE /api/items/:id       - Delete item by ID');
-});
+// Start server only if this file is run directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log('Available endpoints:');
+    console.log('  GET    /                    - API documentation');
+    console.log('  GET    /api/items           - Get all items');
+    console.log('  GET    /api/items/:id       - Get item by ID');
+    console.log('  POST   /api/items           - Create new item');
+    console.log('  PUT    /api/items/:id       - Update item by ID');
+    console.log('  DELETE /api/items/:id       - Delete item by ID');
+  });
+}
 
 module.exports = app;
